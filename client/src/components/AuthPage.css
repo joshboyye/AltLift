@@ -1,0 +1,136 @@
+.auth-page {
+  --auth-forest: #243020;
+  --auth-ink: #252d24;
+  --auth-green: #567642;
+  --auth-lime: #c7f575;
+  --auth-line: #dce4d2;
+  display: grid;
+  grid-template-columns: minmax(350px, 39%) minmax(0, 1fr);
+  min-height: 100svh;
+  background: #fcfdf9;
+  color: var(--auth-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.auth-page *,
+.auth-page *::before,
+.auth-page *::after {
+  box-sizing: border-box;
+}
+.auth-page p,
+.auth-page h1,
+.auth-page h2 {
+  margin: 0;
+}
+.auth-page a,
+.auth-page button,
+.auth-page input {
+  -webkit-tap-highlight-color: transparent;
+}
+.auth-page button,
+.auth-page input {
+  font: inherit;
+}
+.auth-page button,
+.auth-page a {
+  touch-action: manipulation;
+}
+.auth-page button {
+  cursor: pointer;
+}
+.auth-page :focus-visible {
+  outline: 2px solid #769a51;
+  outline-offset: 4px;
+}
+.auth-page a {
+  color: var(--auth-green);
+  text-underline-offset: 4px;
+}
+.auth-page button {
+  border: 0;
+}
+.auth-page svg {
+  flex-shrink: 0;
+}
+
+.auth-story {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: 46px 48px 32px;
+  color: #f5faed;
+  background: var(--auth-forest);
+  overflow: hidden;
+}
+.auth-page .brand {
+  display: inline-flex;
+  align-items: center;
+  font-size: 33px;
+  font-weight: 750;
+  letter-spacing: -1.6px;
+  line-height: 1;
+}
+.auth-page .brand-mark {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  margin-right: 11px;
+  background: var(--auth-lime);
+  color: #252d24;
+}
+.auth-page .brand-mark svg {
+  width: 30px;
+  height: 30px;
+}
+.auth-page .brand-dot {
+  color: var(--auth-lime);
+}
+.auth-story-copy {
+  padding-top: 72px;
+  position: relative;
+  z-index: 1;
+}
+.auth-eyebrow {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+.auth-story .auth-eyebrow {
+  color: #b8cca3;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.auth-eyebrow > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--auth-lime);
+}
+.auth-story h2 {
+  font-size: clamp(31px, 2.75vw, 43px);
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  line-height: 1.23;
+  padding: 26px 0 21px;
+}
+.auth-story h2 > span {
+  color: #c6dca9;
+}
+.auth-story-copy > p:last-child {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #a9be93;
+}
+.auth-art {
+  position: relative;
+  min-height: 320px;
+  flex: 1;
+  width: 100%;
+  max-height: 430px;
+  margin: 20px auto 0;
+}

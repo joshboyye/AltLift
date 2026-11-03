@@ -34,3 +34,9 @@ input,
 select {
   -webkit-tap-highlight-color: transparent;
 }
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+}

@@ -1,3 +1,6 @@
+import AuthPage from "./components/AuthPage.jsx";
+import { useEffect, useState } from "react";
+
 
 function Icon({ name, size = 20, ...props }) {
   return (
@@ -131,4 +134,14 @@ function ExerciseArt({ kind = "bench", large = false }) {
       )}
     </svg>
   );
+}
+
+export default function App() {
+  const [hash, setHash] = useState(window.location.hash);
+  useEffect(() => {
+    const update = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", update);
+    return () => window.removeEventListener("hashchange", update);
+  }, []);
+  return ["#workout", "#gym", "#profile", "#movement", "#programs"].includes(hash) ? <WorkoutPreview /> : <AuthPage brand={<Logo />} />;
 }
