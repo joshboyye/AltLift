@@ -71,4 +71,57 @@ function PasswordField({
 }
 
 
+function getMode() {
+  return window.location.hash === "#signup" ? "signup" : "login";
+}
 
+export default function AuthPage({ brand }) {
+  const [mode, setMode] = useState(getMode);
+  const [notice, setNotice] = useState("");
+  const signup = mode === "signup";
+
+  useEffect(() => {
+    function handleNavigation() {
+      setMode(getMode());
+      setNotice("");
+    }
+    window.addEventListener("hashchange", handleNavigation);
+    return () => window.removeEventListener("hashchange", handleNavigation);
+  }, []);
+
+  useEffect(() => {
+    document.title = `${signup ? "Create account" : "Log in"} — AltLift`;
+  }, [signup]);
+
+  function clearValidation(event) {
+    event.target.setCustomValidity("");
+    const confirmation =
+      event.target.form?.elements.namedItem("confirm-password");
+    if (confirmation) confirmation.setCustomValidity("");
+    setNotice("");
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    if (signup) {
+      const password = form.elements.namedItem("password");
+      const confirmation = form.elements.namedItem("confirm-password");
+      if (password.value !== confirmation.value) {
+        confirmation.setCustomValidity("Your passwords do not match.");
+        confirmation.reportValidity();
+        return;
+      }
+    }
+
+    // Connect this handler to the server's authentication routes in the backend phase.
+    // Do not save or log passwords in this frontend preview.
+    setNotice(
+      signup
+        ? "Your form is ready. Account creation will be available once the backend is connected. No account has been created yet."
+        : "Your form is ready. Sign-in will be available once the backend is connected. You have not been signed in yet.",
+    );
+  }
+
+}
