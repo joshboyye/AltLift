@@ -134,3 +134,90 @@
   max-height: 430px;
   margin: 20px auto 0;
 }
+
+.auth-orbit {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  border: 1px solid #3a4e2f;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 340px;
+}
+.auth-orbit-two {
+  width: 410px;
+  height: 410px;
+  border-color: #30452a;
+}
+.auth-plate {
+  width: 246px;
+  height: 246px;
+  border: 3px solid #7b9753;
+  background: linear-gradient(145deg, #829e5f, #5d7743 35%, #3d542d);
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-22deg);
+  box-shadow:
+    9px 12px 0 #192a17,
+    13px 16px 0 #33482a,
+    15px 20px 24px #14211066,
+    inset 0 0 20px #a0c07835;
+}
+.auth-plate-ridge {
+  position: absolute;
+  inset: 18px;
+  border: 3px solid #3e572f;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #8ba56766;
+}
+.auth-plate-wordmark {
+  position: absolute;
+  top: 24px;
+  left: 52px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #b7d197;
+  text-shadow: 0 2px #3b512b;
+}
+.auth-plate-weight {
+  position: absolute;
+  top: 83px;
+  left: 25px;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 700;
+  color: #b7ce98;
+}
+.auth-plate-weight > small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+  text-align: center;
+}
+.auth-plate-hole {
+  position: absolute;
+  top: 75px;
+  left: 74px;
+  width: 58px;
+  height: 58px;
+  border: 8px solid #9aa88a;
+  border-radius: 50%;
+  background: #1e2f1b;
+  box-shadow:
+    0 0 0 5px #3e542e,
+    inset 5px 6px 4px #101d0d;
+}
+.auth-plate-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 38px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #a4bd83;
+}
