@@ -4,7 +4,7 @@ import Exercise from '../models/Exercise.js'
 
 const router = express.Router()
 
-//GET /api/exercises - Retrieve all exercises, with optional filters
+// GET /api/exercises - Retrieve all exercises, with optional filters
 router.get('/', async (req, res) => {
   try {
     const { pattern, primaryMuscle, secondaryMuscle, equipment, search } = req.query
@@ -40,20 +40,20 @@ router.get('/', async (req, res) => {
 
     const exercises = await Exercise.find(filter).sort({ name: 1 })
 
-    res.status(200).json({
+    res.status(200).json({  //Successful HTTP code
       count: exercises.length,
       data: exercises
     })
 
   } catch (error) {
-    res.status(500).json({
+    res.status(500).json({  //Generic Failed request HTTP error code
       message: 'Failed to retrieve exercises',
       error: error.message
     })
   }
 })
 
-//GET /api/exercises/:identifier - Retrieve one exercise by its identifier
+// GET /api/exercises/:identifier - Retrieve one exercise by its identifier
 router.get('/:identifier', async (req, res) => {
   try {
     const exercise = await Exercise.findOne({
@@ -61,7 +61,7 @@ router.get('/:identifier', async (req, res) => {
     })
 
     if (!exercise) {
-      return res.status(404).json({
+      return res.status(404).json({  //Error code: Server reached, but page not found
         message: 'Exercise not found'
       })
     }
@@ -69,11 +69,42 @@ router.get('/:identifier', async (req, res) => {
     res.status(200).json(exercise)
 
   } catch (error) {
-    res.status(500).json({
+    res.status(500).json({  //Generic Failed request HTTP error code
       message: 'Failed to retrieve exercise',
       error: error.message
     })
   }
+})
+
+// POST /api/exercises - Admin or user creates a new or custom exercise
+router.post('/', async (req, res) => {
+    try {
+        const exercise = await Exercise.create(req.body)
+
+        res.status(201).json({  //POST created successfully HTTP code
+            message: 'Exercise created successfully',
+            data: exercise
+        })
+
+    } catch (error) {
+        if (error.code === 11000) {  //MongoDB duplicate-key error code
+            return res.status(409).json({  //HTTP conflict error status code
+                messgae: 'An exercise with that name or identifier already exists'
+            })
+        }
+
+        if (error.name === 'ValidationError') {  //Mongoose validation error name
+            return res.status(400).json({  //HTTP Bad Request error code
+                message: 'Invalid exercise data',
+                error: error.message
+            })
+        }
+
+        res.status(500).json({  //Generic Failed request HTTP error code
+            message: 'Failed to create exercise',
+            error: error.message
+        })
+    }
 })
 
 export default router
