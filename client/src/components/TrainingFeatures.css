@@ -1,0 +1,223 @@
+.tf-shell {
+  display: flex;
+  min-height: 100vh;
+}
+.tf-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 226px;
+  background: #1d241e;
+  color: #d6e0ce;
+  padding: 34px 17px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.tf-brand {
+  font-size: 31px;
+  letter-spacing: -1.5px;
+  font-weight: 750;
+  color: #f4f8ed;
+  white-space: nowrap;
+  padding: 0 14px;
+}
+.tf-brand > span {
+  display: inline-grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  background: #c7f575;
+  border-radius: 9px;
+  color: #293725;
+  font-size: 17px;
+  margin-right: 5px;
+  letter-spacing: 0;
+}
+.tf-brand > b {
+  color: #c7f575;
+}
+.tf-sidebar > p {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #8e9f82;
+  margin: 45px 14px 20px;
+}
+.tf-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tf-sidebar nav > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #a9b69e;
+  padding: 15px 13px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 7px;
+}
+.tf-sidebar nav > a > span {
+  font-size: 19px;
+  width: 21px;
+  text-align: center;
+}
+.tf-sidebar nav > a:hover {
+  background: #303c2b;
+  color: #edf3e5;
+}
+.tf-sidebar nav > a.active {
+  background: #c7f575;
+  color: #293725;
+  font-weight: 600;
+}
+.tf-sidebar-note {
+  margin-top: auto;
+  border: 1px solid #3b4633;
+  border-radius: 9px;
+  background: #2b3528;
+  padding: 22px 17px;
+}
+.tf-sidebar-note > strong {
+  display: block;
+  font-size: 17px;
+  color: #c4d9ab;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.4px;
+}
+.tf-sidebar-note p {
+  color: #95a387;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 15px !important;
+}
+.tf-account {
+  display: block;
+  color: #97a98a;
+  padding: 22px 12px 0;
+  font-size: 10px;
+}
+.tf-main {
+  width: calc(100% - 226px);
+  margin-left: 226px;
+  min-width: 0;
+}
+.tf-main .wp-header {
+  padding-inline: 36px;
+}
+.tf-breadcrumb {
+  color: #8d9b81;
+  font-size: 11px;
+}
+.tf-main .wp-container {
+  padding: 35px 36px;
+}
+.tf-main .wp-container h1 {
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+.tf-demo-note {
+  color: #91a083;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 17px !important;
+}
+.tf-card {
+  padding: 26px;
+  background: #fff;
+  border: 1px solid #e4e9de;
+  border-radius: 9px;
+  min-width: 0;
+}
+.tf-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+.tf-form {
+  max-width: 850px;
+  margin-top: 28px;
+}
+.tf-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 22px;
+}
+.tf-field {
+  display: block;
+  color: #647b52;
+  font-size: 11px;
+  margin-top: 22px;
+}
+.tf-field > span {
+  display: block;
+  line-height: 1.6;
+  margin-bottom: 9px;
+  font-weight: 500;
+}
+.tf-field input,
+.tf-field select,
+.tf-field textarea {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #dce4d2;
+  border-radius: 6px;
+  background: #fbfdf7;
+  color: #34482b;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 13px;
+}
+.tf-field textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.8;
+}
+.tf-field input::placeholder,
+.tf-field textarea::placeholder {
+  color: #a0ad92;
+}
+.tf-subheading {
+  margin-top: 30px !important;
+}
+.tf-status {
+  margin: 22px 0 18px;
+  background: #edf4e5;
+  border: 1px solid #d8e5ca;
+  border-radius: 7px;
+  padding: 14px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #627e4a;
+}
+.tf-status button {
+  font-size: 20px;
+  min-width: 32px;
+  min-height: 32px;
+  background: transparent;
+  border: 0;
+  color: #6c8358;
+  cursor: pointer;
+}
+.tf-warning {
+  background: #faf3e3;
+  color: #8a7141;
+  border: 1px solid #eadcbb;
+  padding: 14px 17px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 17px 0 !important;
+}
+.tf-presets {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
