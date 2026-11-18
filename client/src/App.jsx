@@ -1,4 +1,5 @@
 import AuthPage from "./components/AuthPage.jsx";
+import WorkoutPreview from "./components/WorkoutPreview.jsx";
 import { useEffect, useState } from "react";
 
 
