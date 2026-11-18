@@ -107,4 +107,74 @@ router.post('/', async (req, res) => {
     }
 })
 
+// PATCH /api/exercises/:identifier - Updating an existing exercise
+router.patch('/:identifier', async (req, res) => {
+    try {
+        const exercise = await Exercise.findOneAndUpdate(
+            { identifier: req.params.identifier },
+            req.body,
+            {
+                new: true,
+                runValidators: true
+            }
+        )
+
+        if (!exercise) {
+            return res.status(404).json({
+                message: 'Exercise not found'
+            })
+        }
+
+        res.status(200).json({
+            message: 'Exercise updated successfully',
+            data: exercise
+        })
+
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(409).json({
+                message: 'An exercise with that name or identifier already exists'
+            })
+        }
+
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({
+                message: 'Invalid exercise data',
+                error: error.message
+            })
+        }
+
+        res.status(500).json({
+            message: 'Failed to update exercise',
+            error: error.message
+        })
+    }
+})
+
+// DELETE /api/exercises/:identifier - Delete an exercise
+router.delete('/:identifier', async (req, res) => {
+  try {
+    const exercise = await Exercise.findOneAndDelete({
+      identifier: req.params.identifier
+    })
+
+    if (!exercise) {
+      return res.status(404).json({
+        message: 'Exercise not found'
+      })
+    }
+
+    res.status(200).json({
+      message: 'Exercise deleted successfully',
+      data: exercise
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: 'Failed to delete exercise',
+      error: error.message
+    })
+  }
+})
+
 export default router
