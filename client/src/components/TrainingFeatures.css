@@ -560,3 +560,179 @@
   font-size: 15px;
   color: #536b3f;
 }
+
+.tf-replacing > span {
+  font-size: 10px;
+}
+.tf-swap-options {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tf-swap-options > legend {
+  font-size: 11px;
+  color: #92a080;
+  margin-bottom: 14px;
+}
+.tf-swap-options > label {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 18px;
+  border: 1px solid #e1e9d8;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.tf-swap-options > label.chosen {
+  background: #f0f6e8;
+  border-color: #b5cb9b;
+}
+.tf-swap-options input {
+  accent-color: #70954d;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+}
+.tf-swap-options small {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #7f9a65;
+}
+.tf-swap-options strong {
+  display: block;
+  font-size: 17px;
+  color: #354e29;
+  margin-top: 10px;
+  font-weight: 600;
+}
+.tf-swap-options em {
+  font-size: 10px;
+  color: #8da079;
+  font-style: normal;
+  display: block;
+  margin-top: 8px;
+}
+.tf-swap-options p {
+  font-size: 11px;
+  color: #889d74;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.tf-dialog button:disabled,
+.tf-shell button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.tf-workout-layout .wp-empty .wp-primary {
+  max-width: 280px;
+  margin-inline: auto;
+}
+.tf-shell input:focus-visible,
+.tf-shell select:focus-visible,
+.tf-shell textarea:focus-visible {
+  outline: 2px solid #769a51;
+  outline-offset: 3px;
+}
+@media (max-width: 1200px) {
+  .tf-sidebar {
+    width: 195px;
+    padding-inline: 12px;
+  }
+  .tf-main {
+    margin-left: 195px;
+    width: calc(100% - 195px);
+  }
+  .tf-main .wp-container {
+    padding-inline: 25px;
+  }
+  .tf-main .wp-header {
+    padding-inline: 25px;
+  }
+  .tf-workout-layout {
+    grid-template-columns: 215px minmax(0, 1fr);
+    gap: 17px;
+  }
+  .tf-card {
+    padding: 21px;
+  }
+  .tf-sidebar nav > a {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .tf-brand {
+    font-size: 27px;
+  }
+  .tf-equipment-grid {
+    gap: 13px;
+  }
+  .tf-equipment-grid legend {
+    font-size: 14px;
+  }
+  .tf-exercise-heading {
+    flex-wrap: wrap;
+  }
+  .tf-exercise-heading .wp-swap {
+    margin-left: 25px;
+  }
+  .tf-save-program {
+    flex-wrap: wrap;
+  }
+  .tf-save-program .tf-field {
+    min-width: 100%;
+  }
+  .tf-save-program button {
+    width: 100%;
+  }
+  .tf-sidebar-note strong {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .tf-workout-layout {
+    grid-template-columns: 1fr;
+  }
+  .tf-workout-layout > aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .tf-workout-layout .tf-callout {
+    margin-top: 0;
+    align-self: start;
+  }
+  .tf-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+  }
+  .tf-details dt {
+    margin-top: 12px;
+    grid-column: 1;
+  }
+  .tf-details dd {
+    margin-top: 12px;
+  }
+  .tf-equipment-grid {
+    grid-template-columns: 1fr;
+  }
+  .tf-equipment-grid fieldset {
+    min-height: auto;
+  }
+  .tf-patterns {
+    grid-template-columns: 1fr;
+  }
+  .tf-program-grid {
+    grid-template-columns: 1fr;
+  }
+  .tf-exercise-heading .wp-swap {
+    margin-left: 0;
+  }
+  .tf-exercise-heading {
+    flex-wrap: nowrap;
+  }
+}
