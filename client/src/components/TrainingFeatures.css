@@ -736,3 +736,151 @@
     flex-wrap: nowrap;
   }
 }
+@media (max-width: 760px) {
+  .tf-shell {
+    display: block;
+  }
+  .tf-sidebar {
+    position: static;
+    width: 100%;
+    padding: 20px 19px 13px;
+    display: block;
+  }
+  .tf-brand {
+    padding: 0;
+    font-size: 27px;
+  }
+  .tf-sidebar > p,
+  .tf-sidebar-note,
+  .tf-account {
+    display: none;
+  }
+  .tf-sidebar nav {
+    flex-direction: row;
+    overflow: auto;
+    gap: 8px;
+    margin-top: 20px;
+    padding-bottom: 6px;
+  }
+  .tf-sidebar nav > a {
+    padding: 10px 12px;
+    white-space: nowrap;
+    font-size: 10px;
+    min-height: 44px;
+  }
+  .tf-sidebar nav > a > span {
+    display: none;
+  }
+  .tf-main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .tf-main .wp-header {
+    height: 52px;
+    padding: 0 20px;
+  }
+  .tf-breadcrumb {
+    font-size: 10px;
+  }
+  .tf-main .wp-container {
+    padding: 29px 20px;
+  }
+  .tf-main .wp-container h1 {
+    font-size: 28px;
+  }
+  .tf-demo-note {
+    font-size: 9px;
+  }
+  .tf-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 15px;
+  }
+  .tf-workout-layout > aside {
+    grid-template-columns: 1fr;
+  }
+  .tf-workout-layout > aside > .tf-callout {
+    display: none;
+  }
+  .tf-card {
+    padding: 22px;
+  }
+  .tf-form {
+    margin-top: 23px;
+  }
+  .tf-history > div {
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .tf-program-controls {
+    gap: 15px;
+  }
+  .tf-dialog {
+    padding: 22px;
+  }
+  .tf-dialog h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 420px) {
+  .tf-columns {
+    grid-template-columns: 1fr;
+  }
+  .tf-card {
+    padding: 20px;
+  }
+  .tf-main .wp-container {
+    padding-inline: 16px;
+  }
+  .tf-main .wp-container h1 {
+    font-size: 26px;
+  }
+  .tf-exercise-heading {
+    flex-wrap: wrap;
+  }
+  .tf-exercise-heading .wp-swap {
+    margin-left: 25px;
+    min-height: 40px;
+  }
+  .tf-exercise {
+    padding: 15px;
+  }
+  .tf-program-controls {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tf-program-controls .tf-field {
+    width: 100%;
+  }
+  .tf-program-controls > span {
+    padding: 0;
+  }
+  .tf-details {
+    grid-template-columns: 95px 1fr;
+  }
+  .tf-patterns {
+    padding: 12px;
+  }
+  .tf-dialog .wp-kicker {
+    font-size: 7px;
+  }
+  .tf-dialog h2 {
+    font-size: 23px;
+  }
+  .tf-swap-options strong {
+    font-size: 15px;
+  }
+  .tf-swap-options > label {
+    padding: 14px;
+  }
+  .tf-item-inputs {
+    gap: 8px;
+  }
+  .tf-item-inputs > label {
+    min-width: 60px;
+  }
+  .tf-pill {
+    font-size: 7px;
+  }
+}
