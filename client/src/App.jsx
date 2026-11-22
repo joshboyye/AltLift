@@ -1,7 +1,10 @@
 import AuthPage from "./components/AuthPage.jsx";
-import WorkoutPreview from "./components/WorkoutPreview.jsx";
+import ProfilePage from "./components/ProfilePage";
 import { useEffect, useState } from "react";
 
+const paths = {
+  dumbbell: "M6 9v6M18 9v6M3 10v4M21 10v4M6 12h12",
+};
 
 function Icon({ name, size = 20, ...props }) {
   return (
@@ -144,5 +147,6 @@ export default function App() {
     window.addEventListener("hashchange", update);
     return () => window.removeEventListener("hashchange", update);
   }, []);
-  return ["#workout", "#gym", "#profile", "#movement", "#programs"].includes(hash) ? <WorkoutPreview /> : <AuthPage brand={<Logo />} />;
+  if (hash === "#profile") return <ProfilePage />;
+  return <AuthPage brand={<Logo />} />;
 }
