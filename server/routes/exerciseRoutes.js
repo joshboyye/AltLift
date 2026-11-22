@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     console.log('Query:', req.query) //debugging
 
     if (pattern) {
-      filter.movementPattern = pattern
+      filter.pattern = pattern
     }
 
     if (primaryMuscle) {

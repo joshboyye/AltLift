@@ -1,6 +1,14 @@
 import mongoose from 'mongoose'
 
 const exerciseSchema = new mongoose.Schema({
+
+  identifier: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+
   name: {
     type: String,
     required: true,
@@ -8,26 +16,20 @@ const exerciseSchema = new mongoose.Schema({
     trim: true
   },
 
-  identifier: {
-    type: String,
-    required: true,
-    unique: true
-  },
-
-  movementPattern: {
+  pattern: {
     type: String,
     required: true,
     enum: [
-        'horizontal_push',
-        'vertical_push',
-        'horizontal_pull',
-        'vertical_pull',
-        'squat',
-        'hinge',
-        'lunge',
-        'carry',
-        'core',
-        'isolation'
+        'Horizontal push',
+        'Vertical push',
+        'Horizontal pull',
+        'Vertical pull',
+        'Squat',
+        'Hinge',
+        'Lunge',
+        'Carry',
+        'Core',
+        'Isolation'
     ]
   },
 
@@ -36,14 +38,14 @@ const exerciseSchema = new mongoose.Schema({
     enum: [
         'chest',
         'lats',
-        'upper_back',
-        'lower_back',
+        'upper back',
+        'lower back',
         'biceps',
         'triceps',
         'forearms',
-        'front_delts',
-        'side_delts',
-        'rear_delts',
+        'front delts',
+        'side delts',
+        'rear delts',
         'quads',
         'hamstrings',
         'glutes',
@@ -51,7 +53,7 @@ const exerciseSchema = new mongoose.Schema({
         'abs',
         'obliques',
         'adductors',
-        'hip_flexors',
+        'hip flexors',
         'traps'
     ], 
     required: true
@@ -62,14 +64,14 @@ const exerciseSchema = new mongoose.Schema({
     enum: [
         'chest',
         'lats',
-        'upper_back',
-        'lower_back',
+        'upper back',
+        'lower back',
         'biceps',
         'triceps',
         'forearms',
-        'front_delts',
-        'side_delts',
-        'rear_delts',
+        'front delts',
+        'side delts',
+        'rear delts',
         'quads',
         'hamstrings',
         'glutes',
@@ -77,7 +79,7 @@ const exerciseSchema = new mongoose.Schema({
         'abs',
         'obliques',
         'adductors',
-        'hip_flexors',
+        'hip flexors',
         'traps'
     ]
   }],
@@ -86,19 +88,37 @@ const exerciseSchema = new mongoose.Schema({
     type: String,
     enum: [
         'barbell',
-        'dumbbell',
-        'ez_bar',
+        'dumbbells',
+        'ez bar',
         'kettlebell',
         'cable',
         'machine',
         'bodyweight',
         'bench',
-        'pull_up_bar',
-        'ab_wheel',
-        'resistance_band'
+        'pull up bar',
+        'ab wheel',
+        'resistance band'
     ],
     required: true
   }],
+
+  level: {
+    type: String,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
+    required: true
+  },
+  kind: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  cue: {
+    type: String,
+    required: true
+  },
 
   isCompound: {
     type: Boolean,
@@ -113,7 +133,7 @@ const exerciseSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 exerciseSchema.index({
-  movementPattern: 1,
+  pattern: 1,
   primaryMuscles: 1
 })
 
