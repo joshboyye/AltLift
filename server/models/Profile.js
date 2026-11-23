@@ -10,14 +10,12 @@ const profileSchema = new mongoose.Schema(
         weightKg: {
             type: Number,
             min: [0, "Weight must be a positive number"],
-            default: "",
-            trim: true,
+            default: null,
         },
         heightCm: {
             type: Number,
             min: [0, "Height must be a positive number"],
-            default: "",
-            trim: true,
+            default: null,
         },
         sex: {
             type: String,
