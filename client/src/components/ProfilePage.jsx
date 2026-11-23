@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./ProfilePage.css";
 
 const STORAGE_KEY = "altlift_profile";
+const PROFILE_API_URL = `${(import.meta.env.VITE_API_URL || "http://localhost:4000").replace(/\/$/, "")}/api/profile`;
 
 const DEFAULT_PROFILE = {
   displayName: "",
@@ -31,23 +32,42 @@ export default function ProfilePage() {
     }));
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
 
-    if(!form.displayName.trim()) {
+    if (!form.displayName.trim()) {
       alert("Display name is required.");
       return;
     }
 
     const cleanedForm = {
       ...form,
-      displayName: form.displayName.trim()
+      displayName: form.displayName.trim(),
     };
 
-    setForm(cleanedForm);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
-    alert("Profile saved successfully!");
-    console.log("Saved Profile: ", form);
+    try {
+      const response = await fetch(PROFILE_API_URL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cleanedForm),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to save profile.");
+      }
+
+      const savedProfile = {
+        ...cleanedForm,
+        weightKg: result.weightKg ?? "",
+        heightCm: result.heightCm ?? "",
+      };
+      setForm(savedProfile);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(savedProfile));
+      alert("Profile saved successfully!");
+    } catch (error) {
+      console.error("Error saving profile:", error);
+      alert(error instanceof Error ? error.message : "Failed to save profile.");
+    }
   };
 
   return (
@@ -195,7 +215,6 @@ export default function ProfilePage() {
           <button
             type="submit"
             className="profile-save-btn"
-            onClick={handleSave}
           >
             <span>✓ Save profile</span>
           </button>
