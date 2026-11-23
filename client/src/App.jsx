@@ -1,4 +1,5 @@
 import AuthPage from "./components/AuthPage.jsx";
+// import NavBar from "./components/NavBar.jsx";
 import ProfilePage from "./components/ProfilePage";
 import { useEffect, useState } from "react";
 
