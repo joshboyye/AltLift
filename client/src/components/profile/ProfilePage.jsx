@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./ProfilePage.css";
 
 const STORAGE_KEY = "altlift_profile";
-const PROFILE_API_URL = `${(import.meta.env.VITE_API_URL || "http://localhost:4000").replace(/\/$/, "")}/api/profile`;
+const PROFILE_API_URL = `${(import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "")}/api/profile`;
 
 const DEFAULT_PROFILE = {
   displayName: "",
@@ -16,14 +16,13 @@ const DEFAULT_PROFILE = {
 };
 
 export default function ProfilePage() {
-  
   const [form, setForm] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved
       ? { ...DEFAULT_PROFILE, ...JSON.parse(saved) }
       : DEFAULT_PROFILE;
   });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -89,7 +88,7 @@ export default function ProfilePage() {
               <input
                 type="text"
                 className="profile-input"
-                placeholder ="John"
+                placeholder="John"
                 name="displayName"
                 value={form.displayName}
                 onChange={handleChange}
@@ -212,10 +211,7 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="profile-save-btn"
-          >
+          <button type="submit" className="profile-save-btn">
             <span>✓ Save profile</span>
           </button>
 

@@ -1,6 +1,6 @@
-import AuthPage from "./components/AuthPage.jsx";
+import AuthPage from "./components/auth/AuthPage.jsx";
 // import NavBar from "./components/NavBar.jsx";
-import ProfilePage from "./components/ProfilePage";
+import ProfilePage from "./components/profile/ProfilePage.jsx";
 import { useEffect, useState } from "react";
 
 const paths = {
@@ -38,7 +38,6 @@ function Logo() {
     </span>
   );
 }
-
 
 function ExerciseArt({ kind = "bench", large = false }) {
   const standing = ["squat", "press", "row"].includes(kind);
