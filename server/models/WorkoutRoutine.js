@@ -34,4 +34,11 @@ const workoutRoutineSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    exercises: [routineExerciseSchema]
+}, {
+    timestamps: true
 })
+
+const WorkoutRoutine = mongoose.model('WorkoutRoutine', workoutRoutineSchema)
+
+export default WorkoutRoutine
