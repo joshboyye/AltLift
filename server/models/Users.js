@@ -19,12 +19,8 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     savedExercises: [{
-        type: mongoose.SchemaType.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Exercise'
-    }],
-    workoutRoutines: [{
-        type: mongoose.SchemaType.Types.ObjectId,
-        ref: 'WorkoutRoutine'
     }]
 }, {
     timestamps: true
