@@ -1,7 +1,9 @@
+// App entry component: connects the account preview to the workout preview using # routes.
 import AuthPage from "./components/auth/AuthPage.jsx";
-// import NavBar from "./components/NavBar.jsx";
+import WorkoutPreview from "./components/profile/WorkoutPreview.jsx";
 import ProfilePage from "./components/profile/ProfilePage.jsx";
 import { useEffect, useState } from "react";
+
 
 const paths = {
   dumbbell: "M6 9v6M18 9v6M3 10v4M21 10v4M6 12h12",
@@ -148,5 +150,8 @@ export default function App() {
     return () => window.removeEventListener("hashchange", update);
   }, []);
   if (hash === "#profile") return <ProfilePage />;
+  if (["#workout", "#gym", "#movement", "#programs"].includes(hash)) {
+    return <WorkoutPreview />;
+  }
   return <AuthPage brand={<Logo />} />;
 }
